@@ -1,8 +1,8 @@
 # webdev-final-project
 
-## Hi, Welcome to MusicFan
+## Hi, Welcome to SmartKitchen
 
-Here is the first version of the project description. Website Link: [to be continued]
+Here is the first version of the project description. Website Link: https://webdev-group-project.herokuapp.com/
 
 ## Team Introduction
 
@@ -16,16 +16,16 @@ Committing way: feature branch workflow by committing branches and submit pull r
 ## Problem Solved
 
 - Problem description
- Provides a platform for apple music customers to follow their favorite artists, share playlists.Users can publish their music, edit and delete their post and explore things by different categories.
+ Provides a platform for meal lovers to find their favorite recipes, save recipes on their own page. Admin can publish new recipes, edit and delete their post and explore things by different categories.
 
 - Target Users
 
   - Artist
     - goal 1: create, login and edit profile page
-    - goal 2: publish, edit, delete music, search posted history
+    - goal 2: publish, edit, delete recipes, search posted history
   - customer
     - goal 1: create and login personal account
-    - goal 2: search and add favourite music to his/her playlist, follow other users
+    - goal 2: search and add favourite recipes to his/her page, follow other users
 
 ## Stategy
 
@@ -39,14 +39,14 @@ Committing way: feature branch workflow by committing branches and submit pull r
     - About: a page that explains our mission and design of the site
     - Sign in with Google 
   - Search page
-    - search by input text: a page for exploring music to listen by different categories (type in auto-fill: ad-...)
-    - search by categories: select certain music type
+    - search by input text: a page for exploring recipes by different categories (type in auto-fill: ad-...)
+    - search by categories: select certain meal type
   - Detail page
-    - listed music: title, album, category, length
+    - listed recipes: title, directions, category
   - Profile page
-    - personal information, playlist, liked songs
-    - Publish: authenticated user may enter music description, category and item image url when adding a new post 
-    - History: posted songs
+    - personal information, liked recipes
+    - Publish: authenticated user may enter recipe description, category and item image url when adding a new post 
+    - History: posted recipes
 
 #### Back-end
 
@@ -56,10 +56,10 @@ Committing way: feature branch workflow by committing branches and submit pull r
   - Database: MongoDB
 - Implementation
   - Model
-    - Post {title, artist, track name, album, category, length, img url}
+    - Post {title, directions, category, img url..}
     - Post can be edit, delete, add
   - User
-    - Account info from Google Sign in API
+    - Account info
     - User can sign in and out
 
 #### Test Strategy Design
@@ -69,20 +69,25 @@ Committing way: feature branch workflow by committing branches and submit pull r
 
 ## About API
 
-[Apple Services Performance Partners](https://affiliate.itunes.apple.com/resources/)
+[Apple Services Performance Partners](https://www.themealdb.com/api.php)
 
-The API provides content within the iTunes Store and Apple Books Store, including books, movies, podcasts, music, music videos, audiobooks, and TV shows. We retrive the music data, which contains: musicArtist, musicTrack, album, mix, song, and All Music Guide (AMG) IDs. Here are some API examples that we are going to use in our CRUD process:
+All Patreon supporters have access to the beta version of the API which allows mutiple ingredient filters.
+You also get access to adding your own meals and images. You can also list the full database rather than limited to 100 items. You can use the test API key "1" during development of your app or for educational use(see test links below)
+However you must apply for a key a production API key via email if releasing publicly on an appstore.
+The test key may be revoked at any time if abused.
 
-- To search for a particular artist's music, e.g. Jack Johnson: 
+- Search meal by name
 
-  https://itunes.apple.com/search?term=jack+johnson&entity=music
+  https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
 
-- Look up all albums for Jack Johnson:
-  https://itunes.apple.com/lookup?id=909253&entity=album
+- Lookup full meal details by id
+  https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
 
-- Look up multiple artists by their AMG artist IDs and get each artist’s top 5 albums: 
+- List all Categories, Area, Ingredients
 
-  https://itunes.apple.com/lookup?amgArtistId=468749,5723&entity=album&limit=5
+  https://www.themealdb.com/api/json/v1/1/list.php?c=list
+  https://www.themealdb.com/api/json/v1/1/list.php?a=list
+  https://www.themealdb.com/api/json/v1/1/list.php?i=list
 
 ## Other Info
 
