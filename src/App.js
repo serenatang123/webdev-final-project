@@ -27,6 +27,7 @@ function App() {
             <Route path="/details/:recipeID" exact = {true}>
                 <DetailsScreen/>
             </Route>
+
             <Route path={["/profile", "/profile/:profileType"]} exact = {true}>
                 <Profile/>
             </Route>
