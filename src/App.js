@@ -5,6 +5,7 @@ import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./components/profile/profile";
 import DetailsScreen from "./components/details/detail-screen";
+import Login from "./components/login";
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
 
             <Route path="/" exact = {true}>
                 <HomeScreen/>
+            </Route>
+
+            <Route path="/login" exact = {true}>
+                <Login/>
             </Route>
 
             <Route path={["/search", "/search/:recipeName"]} exact = {true}>
