@@ -22,21 +22,24 @@ const SearchScreen = () => {
             })
     }
     return (
-        <div>
-            <h2> Search Screen </h2>
-            <input value={searchRecipe}
-                   onChange={(event) => {
-                       setSearchRecipe(event.target.value)
-                   }}
-                   className = "form-control"/>
+        <div className="container-fluid">
+            <div>
+                <h2> Search Screen </h2>
+                <input value={searchRecipe}
+                       onChange={(event) => {
+                           setSearchRecipe(event.target.value)
+                       }}
+                       className = "form-control"/>
 
-            <button
-                onClick={() => {
-                    findRecipeByName(searchRecipe)
-                }}
-                className = "btn btn-primary">
-                Search
-            </button>
+                <button
+                    onClick={() => {
+                        findRecipeByName(searchRecipe)
+                    }}
+                    className = "btn btn-primary btn-block">
+                    Search
+                </button>
+            </div>
+
 
             <ul className="list-group">
                 {
