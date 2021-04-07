@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 // import musicService from "../services/music-service"
 import recipeService from "../../services/recipe-service"
+import 'font-awesome/css/font-awesome.min.css'
 
 
 
@@ -32,6 +33,11 @@ const DetailsScreen = () => {
                     <h2>
                         {recipe.meals && recipe.meals[0] && recipe.meals[0].strMeal}
                     </h2>
+                    <br/>
+                    <th>
+                        <i className="far fa-heart">Like</i>
+                        <i className="fas fa-plus-square">Add to Favorite</i>
+                    </th>
                     <br/>
                     <div className="text-center">
                         <img src={recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb}
