@@ -7,7 +7,7 @@ const HomeScreen = () => {
             <h2> Home </h2>
             <Link to = "/search"> Search </Link>
             <br/>
-            {/*<Link to = "/details"> Details </Link>*/}
+            <Link to = "/profile"> Profile </Link>
         </div>
     )
 }
