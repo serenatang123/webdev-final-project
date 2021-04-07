@@ -1,9 +1,10 @@
 import './App.css';
 import SearchScreen from "./components/search-screen";
-import DetailsScreen from "./components/detail-screen";
+
 import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./components/profile/profile";
+import DetailsScreen from "./components/details/detail-screen";
 
 function App() {
   return (
