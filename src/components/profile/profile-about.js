@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ProfileAbout = () => {
+const ProfileAbout = ({profile, setProfile, editing, setEditing}) => {
     return (
-        <h3>About</h3>
+        <p className="text-justify">{profile.about}</p>
     )
 }
 

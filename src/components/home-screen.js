@@ -12,7 +12,8 @@ const HomeScreen = () => {
                     <h2 className="col-10">SuperKitchen</h2>
                     <Link to={"/search"}><i className="fa fa-2x fa-search col-1"></i></Link>
                     <Link to={"/login"}><i className="fa fa-2x fa-user col-1"></i></Link>
-                    <Link to={"/profile"}>Profile</Link>
+                    <Link to={"/profile"}>Profile-Admin</Link>
+                    <Link to={"/profile/:id"}>Profile-User</Link>
                 </div>
 
                 <div className="row img-ys">

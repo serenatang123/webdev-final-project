@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./components/profile/profile";
 import DetailsScreen from "./components/details/detail-screen";
 import Login from "./components/login";
+import ProfileAdmin from "./components/profile/profile-admin";
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
                 <DetailsScreen/>
             </Route>
 
-            <Route path={["/profile", "/profile/:profileType"]} exact = {true}>
+            <Route path="/profile" exact = {true}>
+                <ProfileAdmin/>
+            </Route>
+
+            <Route path="/profile/:id" exact = {true}>
                 <Profile/>
             </Route>
 
