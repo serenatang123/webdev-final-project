@@ -7,6 +7,7 @@ import Profile from "./components/profile/profile";
 import DetailsScreen from "./components/details/detail-screen";
 import Login from "./components/login";
 import ProfileAdmin from "./components/profile/profile-admin";
+import Register from "./components/register";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
 
             <Route path="/login" exact = {true}>
                 <Login/>
+            </Route>
+
+            <Route path="/register" exact ={true}>
+                <Register/>
             </Route>
 
             <Route path={["/search", "/search/:recipeName"]} exact = {true}>
