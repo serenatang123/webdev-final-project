@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {connect} from "react-redux";
 import ProfileBio from "./profile-bio";
 import ProfileAbout from "./profile-about";
 import ProfileFavorite from "./profile-favorite";
