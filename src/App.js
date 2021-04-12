@@ -1,6 +1,5 @@
 import './App.css';
 import SearchScreen from "./components/search-screen";
-
 import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Route, Switch, useParams} from "react-router-dom";
 import Profile from "./components/profile/profile";
