@@ -1,22 +1,22 @@
 import React from 'react'
 
-const ProfileBio = ({profile, setProfile, editing, setEditing}) => {
+const ProfileBio = ({profile, setProfile, editing, setEditing, saveProfile}) => {
 
     return (
         <>
             <h3>Bio</h3>
             <img src={profile.avatar} width="200"/>
-            <p>{profile.name}</p>
+            <p>{profile.firstName} {profile.lastName}</p>
             {
                 editing &&
                 <div className="bio-block">
-                    <i onClick={() => setProfile()} className="fa fa-check" style={{color:"green"}}></i>
+                    <i onClick={() => saveProfile(profile)} className="fa fa-check" style={{color:"green"}}></i>
                     <input defaultValue={profile.phone} onChange={(e) => setProfile(profile =>
-                        ({...profile, src : e.target.value}))} className="form-control"/>
+                        ({...profile, phone : e.target.value}))} className="form-control"/>
                     <input defaultValue={profile.email} onChange = {(e) => setProfile(profile =>
-                        ({...profile, width : e.target.value}))} className="form-control"/>
+                        ({...profile, email : e.target.value}))} className="form-control"/>
                     <input defaultValue={profile.address} onChange = {(e) => setProfile(profile =>
-                        ({...profile, height : e.target.value}))} className="form-control"/>
+                        ({...profile, address : e.target.value}))} className="form-control"/>
                 </div>
             }
             {
@@ -37,5 +37,7 @@ const ProfileBio = ({profile, setProfile, editing, setEditing}) => {
         </>
     )
 }
+
+
 
 export default ProfileBio;

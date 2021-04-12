@@ -1,6 +1,6 @@
-const PROFILE_URL = "http://localhost:8080/api/profile";
+const PROFILE_URL = "http://localhost:3000/api/profile";
 
-export const createProfileForUser = (id, profile) =>
+export const createProfile = (id, profile) =>
     fetch(`${PROFILE_URL}/${id}`, {
         method: "POST",
         body: JSON.stringify(profile),
@@ -11,7 +11,7 @@ export const createProfileForUser = (id, profile) =>
         .then(response => response.json())
 
 export const findAllProfiles = () =>
-    fetch("http://localhost:8080/api/profiles")
+    fetch(`${PROFILE_URL}`)
         .then(response => response.json());
 
 export const findProfileForUser = (id) =>
@@ -36,7 +36,7 @@ export const updateProfileForUser = (id, profile) =>
 
 
 const api = {
-    createProfileForUser, findAllProfiles, findProfileForUser, deleteProfileForUser, updateProfileForUser
+    createProfile, findAllProfiles, findProfileForUser, deleteProfileForUser, updateProfileForUser
 }
 
 export default api;

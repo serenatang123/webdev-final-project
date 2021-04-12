@@ -4,6 +4,7 @@ import '../style.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 const HomeScreen = () => {
+
     return (
         <div>
             <div className="container-fluid">
@@ -13,7 +14,6 @@ const HomeScreen = () => {
                     <Link to={"/search"}><i className="fa fa-2x fa-search col-1"></i></Link>
                     <Link to={"/login"}><i className="fa fa-2x fa-user col-1"></i></Link>
                     <Link to={"/profile"}>Profile-Admin</Link>
-                    <Link to={"/profile/:id"}>Profile-User</Link>
                 </div>
 
                 <div className="row img-ys">
