@@ -1,18 +1,20 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+// import "./home-screen.css";
 import '../style.css'
 import 'font-awesome/css/font-awesome.min.css'
+import InstructionDetail from "./details/instruction-detail";
+import Navbar from "./navbar/navbar";
 
 const HomeScreen = () => {
 
     return (
         <div>
             <div className="container-fluid">
-
                 <div className="row nav-ys">
                     <h2 className="col-10">SuperKitchen</h2>
-                    <Link to={"/search"}><i className="fa fa-2x fa-search col-1"></i></Link>
-                    <Link to={"/login"}><i className="fa fa-2x fa-user col-1"></i></Link>
+                    <Link to={"/search"}><i className="fa fa-2x fa-search col-1"/></Link>
+                    <Link to={"/login"}><i className="fa fa-2x fa-user col-1"/></Link>
                     <Link to={"/profile"}>Profile-Admin</Link>
                 </div>
 
@@ -23,7 +25,7 @@ const HomeScreen = () => {
                     </div>
                     <div className="col-6">
                         <img src="https://img1.wsimg.com/isteam/ip/56db4a65-8ac0-4b8a-84b3-b627379e2ca5/uliana-kopanytsia-2FA0VJzwc0g-unsplash-0001.jpg/:/"
-                             className="img-fluid" alt=""></img>
+                             className="img-fluid" alt=""/>
                     </div>
                 </div>
             </div>

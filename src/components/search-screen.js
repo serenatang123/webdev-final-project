@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
-// import musicService from "../services/music-service"
 import recipeService from "../services/recipe-service"
 
 const SearchScreen = () => {
