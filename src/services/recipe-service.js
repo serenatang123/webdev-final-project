@@ -3,8 +3,8 @@ const findRecipeByName = (recipeName) => {
         .then(response => response.json())
 }
 
-const findRecipeByRecipeID = (recipeID) => {
-    return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeID}`)
+const findRecipeByRecipeID = (recipeId) => {
+    return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`)
         .then(response => response.json())
 }
 
