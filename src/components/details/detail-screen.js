@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import 'font-awesome/css/font-awesome.min.css'
 import recipeService from "../../services/recipe-service"
-import ReviewList from "./detail-reviews"
+//import ReviewList from "./detail-reviews"
 import IngredientDetail from "./ingredient-detail"
 import InstructionDetail from "./instruction-detail"
 
@@ -82,9 +82,7 @@ const DetailsScreen = () => {
                         <IngredientDetail/>
                     </div>
 
-                    <div>
-                        <ReviewList/>
-                    </div>
+
 
                 </div>
                 <div className="col-sm-2"/>

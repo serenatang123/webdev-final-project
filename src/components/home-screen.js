@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import '../style.css'
 import 'font-awesome/css/font-awesome.min.css'
 import InstructionDetail from "./details/instruction-detail";
-import Navbar from "./navbar/navbar";
+// import Navbar from "./navbar/navbar";
 
 const HomeScreen = () => {
 
