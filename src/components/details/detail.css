@@ -1,0 +1,28 @@
+.top-margin {
+    margin-top: 30px;
+}
+
+.bottom-margin {
+    padding-bottom: 150px;
+}
+
+.container-outline {
+    border-style: solid;
+    border-width: thin;
+    border-color: lightslategrey;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 40px;
+    padding-bottom: 150px;
+}
+
+.description-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.separation-padding {
+    padding-top: 40px;
+}
