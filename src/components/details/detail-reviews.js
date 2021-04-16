@@ -1,26 +1,51 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import reviewService from "../../services/review-service";
+import './detail.css'
 
-const ReviewList = ({
-                        setReview, reviewActive
-    }) => {
+const ReviewList = ({recipeId}) => {
+    const [review, setReview] = useState({})
+    const [myReview, setMyReview] = useState({text: ''})
+    useEffect(() => {
+        findReviewsForRecipe()
+    }, [])
+    // const review = reviewService.findReviewsForRecipe(recipeId)
+    const findReviewsForRecipe = () => {
+        reviewService.findReviewsForRecipe(recipeId)
+            .then((data) => {
+                setReview(data)
+            })
+    }
     return (
         <div>
-            <h5>
-                All Reviews
+            <h5 className="separation-padding">
+                Reviews
             </h5>
-            <br/>
-            <h5>
+            <tr>
+                <td>
+                    {
+                        review && review[0] && review.map((item, i) => {
+                            return(
+                                <li key={i}>{item.text}</li>
+                            )
+                        })
+                    }
+                </td>
+            </tr>
+            <h5 className="separation-padding">
                 Submit Your Review
             </h5>
             <div>
                 <textarea id="reviewText"
-                    value={reviewActive && reviewActive.text}
+                    value={myReview.text}
+                              onChange={(e) => {
+                                setMyReview({...myReview, text: e.target.value})
+                              }
+                          }
                     className="form-control"/>
             </div>
             <button className = "btn btn-primary btn-block"
-                    value="Submit Review"
                     onClick={(e) =>
-                    setReview(...reviewActive, document.getElementById("reviewText"))}>
+                        reviewService.createReviewForRecipe(recipeId, myReview)}>
                 Submit
             </button>
         </div>
