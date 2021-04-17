@@ -4,9 +4,9 @@ import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Route, Switch, useParams} from "react-router-dom";
 import Profile from "./components/profile/profile";
 import DetailsScreen from "./components/details/detail-screen";
-import Login from "./components/login";
+import Login from "./components/user/login";
 import ProfileAdmin from "./components/profile/profile-admin";
-import Register from "./components/register";
+import Register from "./components/user/register";
 
 function App() {
     return (

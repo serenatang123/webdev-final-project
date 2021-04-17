@@ -1,7 +1,24 @@
-import React from 'react'
-import {Link} from "react-router-dom";
+import React, {useState} from 'react'
+import {Link, useHistory} from "react-router-dom";
+import userService from "../../services/user-service";
 
 const Login = () =>{
+    const [credentials, setCredentials] = useState({username: '', password: ''})
+    const history = useHistory()
+
+    const login = () => {
+        userService.login(credentials)
+            .then((user) => {
+                console.log(user)
+                if(user === 0) {
+                    alert("login failed, try again")
+                } else {
+                    history.push("/profile")
+                }
+            })
+        history.push("/profile")
+    }
+
     return(
         <div>
             <div className="container">
@@ -15,8 +32,10 @@ const Login = () =>{
                         <label htmlFor="username" className="col-sm-2 col-form-label">
                             Username </label>
                         <div className="col-sm-10">
-                            <input className="form-control"
-                                   id="username"
+                            <input
+                                value={credentials.username}
+                                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                                className="form-control"
                                    placeholder="username"></input>
                         </div>
                     </div>
@@ -25,9 +44,11 @@ const Login = () =>{
                         <label htmlFor="password" className="col-sm-2 col-form-label">
                             Password </label>
                         <div className="col-sm-10">
-                            <input type="password"
+                            <input
+                                value={credentials.password}
+                                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                                type="password"
                                    className="form-control"
-                                   id="password"
                                    placeholder="password"></input>
                         </div>
                     </div>
@@ -36,7 +57,7 @@ const Login = () =>{
                         <label className="col-sm-2 col-form-label"></label>
                         <div className="col-sm-10">
                             <a href="../profile/profile.template.client.html">
-                                <button type="button" className="btn btn-primary btn-block">Sign in</button>
+                                <button onClick={login} type="button" className="btn btn-primary btn-block">Login</button>
                             </a>
                             <div className="row">
                                 <div className="col-4">
