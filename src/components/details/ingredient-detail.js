@@ -3,13 +3,13 @@ import {useParams} from "react-router-dom";
 import recipeService from "../../services/recipe-service"
 
 const IngredientDetail = ({ingredient}) => {
-    const {recipeID} = useParams()
+    const {recipeId} = useParams()
     const [recipe, setRecipe] = useState ({})
     useEffect(() => {
-        findRecipeByRecipeID()
+        findRecipeByRecipeId()
     }, [])
-    const findRecipeByRecipeID = () => {
-        recipeService.findRecipeByRecipeID(recipeID)
+    const findRecipeByRecipeId = () => {
+        recipeService.findRecipeByRecipeId(recipeId)
             .then((data) => {
                 setRecipe(data)
             })
@@ -17,7 +17,7 @@ const IngredientDetail = ({ingredient}) => {
 
     const items = [];
     for (let i = 1; i <= 20; i++) {
-        if (recipe.meals && recipe.meals[0] && recipe.meals[0][`strIngredient${i}`] == "") {
+        if (recipe.meals && recipe.meals[0] && recipe.meals[0][`strIngredient${i}`] === "") {
             break;
         }
         items.push(

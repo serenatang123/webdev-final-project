@@ -1,28 +1,31 @@
 import React, {useEffect, useState} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
+import './detail.css'
 import 'font-awesome/css/font-awesome.min.css'
 import recipeService from "../../services/recipe-service"
-//import ReviewList from "./detail-reviews"
+import ReviewList from "./detail-reviews"
 import IngredientDetail from "./ingredient-detail"
 import InstructionDetail from "./instruction-detail"
 
 
 const DetailsScreen = () => {
-    const {recipeID} = useParams()
+    const {recipeId} = useParams()
     const history = useHistory()
     const [recipe, setRecipe] = useState ({})
+
     useEffect(() => {
-        findRecipeByRecipeID()
+        findRecipeByRecipeId()
     }, [])
-    const findRecipeByRecipeID = () => {
-        recipeService.findRecipeByRecipeID(recipeID)
+
+    const findRecipeByRecipeId = () => {
+        recipeService.findRecipeByRecipeId(recipeId)
             .then((data) => {
                 setRecipe(data)
             })
     }
     return (
 
-        <div className="container-fluid">
+        <div className="container-fluid top-margin container-outline bottom-margin">
             <div className="row">
                 <div className="col-sm-2"/>
                 <div className="col-sm-8">
@@ -31,7 +34,7 @@ const DetailsScreen = () => {
                         Back
                     </button>
                     <br/>
-                    <h2>
+                    <h2 className="separation-padding">
                         {recipe.meals && recipe.meals[0] && recipe.meals[0].strMeal}
                     </h2>
 
@@ -54,14 +57,16 @@ const DetailsScreen = () => {
                     </div>
                     <br/>
 
-                    <div className="text-center">
+                    <div className="text-center description-image">
                         <img src={recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb}
                              width={500}/>
                     </div>
                     <br/>
 
                     <div>
-                        <h5>Category</h5>
+                        <h5 className="separation-padding">
+                            Category
+                        </h5>
                         <p>
                             {recipe.meals && recipe.meals[0] && recipe.meals[0].strCategory}
                         </p>
@@ -81,9 +86,9 @@ const DetailsScreen = () => {
                     <div>
                         <IngredientDetail/>
                     </div>
-
-
-
+                    <div>
+                        <ReviewList recipeId={recipeId}/>
+                    </div>
                 </div>
                 <div className="col-sm-2"/>
             </div>

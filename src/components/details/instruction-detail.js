@@ -3,18 +3,19 @@ import recipeService from "../../services/recipe-service"
 import {useParams} from "react-router-dom";
 
 const InstructionDetail = ({instruction}) => {
-    const {recipeID} = useParams()
+    const {recipeId} = useParams()
     const [recipe, setRecipe] = useState ({})
+
     useEffect(() => {
-        findRecipeByRecipeID()
+        findRecipeByRecipeId()
     }, [])
-    const findRecipeByRecipeID = () => {
-        recipeService.findRecipeByRecipeID(recipeID)
+
+    const findRecipeByRecipeId = () => {
+        recipeService.findRecipeByRecipeId(recipeId)
             .then((data) => {
                 setRecipe(data)
             })
     }
-
     return(
         <div>
             <h5>Instructions</h5>

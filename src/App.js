@@ -29,7 +29,7 @@ function App() {
                             <SearchScreen/>
                         </Route>
 
-                        <Route path="/details/:recipeID" exact = {true}>
+                        <Route path="/details/:recipeId" exact = {true}>
                             <DetailsScreen/>
                         </Route>
 
