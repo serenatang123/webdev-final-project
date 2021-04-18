@@ -1,8 +1,8 @@
-const USER_API = "http://localhost:3000/api";
+const REGISTER_URL = "http://localhost:3000/api";
 
-const register = (credentials) => {
-    return fetch(`${USER_API}/register`, {
-        method: "POST",
+export const register = (credentials) => {
+    return fetch(`${REGISTER_URL}/register`, {
+        method: 'POST',
         credentials: "include",
         body: JSON.stringify(credentials),
         headers: {
@@ -12,9 +12,8 @@ const register = (credentials) => {
         .then(response => response.json())
 }
 
-// fetch 里面的 credentials： http 交互需要指定的值
 const login = (credentials) => {
-    return fetch(`${USER_API}/login`, {
+    return fetch(`${REGISTER_URL}/login`, {
         method: "POST",
         credentials: "include",
         body: JSON.stringify(credentials),
@@ -24,16 +23,9 @@ const login = (credentials) => {
     })
         .then(response => response.json())
 }
-
-// const profile = () => {
-//     return fetch(`${USER_API}/profile`, {
-//         method: "POST",
-//         credentials: "include"
-//     }).then(response => response.json())
-// }
 
 export const profile = () => {
-    return fetch(`${USER_API}/profile`, {
+    return fetch(`${REGISTER_URL}/profile`, {
         credentials: 'include'
     }).then(response => {
         if (response.status === 200) {
@@ -45,7 +37,7 @@ export const profile = () => {
 }
 
 export const updateUser = (body) => {
-    return fetch(`${USER_API}/profile/update`, {
+    return fetch(`${REGISTER_URL}/profile/update`, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify(body),
@@ -56,7 +48,7 @@ export const updateUser = (body) => {
 }
 
 export const logout = () => {
-    return fetch(`${USER_API}/logout`, {
+    return fetch(`${REGISTER_URL}/logout`, {
         method: 'POST',
         credentials: 'include'
     });
@@ -65,5 +57,3 @@ export const logout = () => {
 export default {
     register, login, profile, updateUser, logout
 }
-
-// TODO: 前段增加访问 session 的逻辑，可能调个包

@@ -4,11 +4,11 @@ import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Link, Route, Switch, useParams} from "react-router-dom";
 import Profile from "./components/profile/profile";
 import DetailsScreen from "./components/details/detail-screen";
-import Login from "./components/login";
-import Register from "./components/register";
+import Login from "./components/user/login";
+import ProfileAdmin from "./components/profile/profile-admin";
+import Register from "./components/user/register";
 import {useEffect, useState} from 'react';
 import {logout, profile} from './services/user-service';
-import ProfileAdmin from "./components/profile/profile-admin";
 
 function App() {
 
