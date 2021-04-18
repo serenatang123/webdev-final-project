@@ -6,9 +6,13 @@ export const createUser = (user) => {
         body: JSON.stringify(user),
         headers: {
             'content-type': 'application/json'
-        }
+        },
+        credentials: 'include'
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            return response.json()
+        }).then()
 }
 
 const api = {

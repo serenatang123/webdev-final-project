@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import registerService from "../services/register-service"
 
 
 const Register = () =>{
+    const history = useHistory();
+    const [userName, setUserName] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [address, setAddress] = useState("")
@@ -12,6 +14,7 @@ const Register = () =>{
     const [phone, setPhone] = useState("")
     const createUser = () =>{
         const newUser = {
+            userName,
             firstName,
             lastName,
             address,
@@ -19,7 +22,9 @@ const Register = () =>{
             password,
             phone,
         }
+        // console
         registerService.createUser(newUser)
+            .then(() => history.push("/login"))
     };
 
     return (
@@ -30,6 +35,19 @@ const Register = () =>{
                 </h1>
 
                 <form>
+
+                    <div className="form-group row">
+                        <label htmlFor="username" className="col-sm-2 col-form-label">
+                            Username </label>
+                        <div className="col-sm-10">
+                            <input className="form-control"
+                                   id="username"
+                                   placeholder="Username"
+                                   onChange={(e)=>{
+                                       setUserName(e.target.value);
+                                   }}></input>
+                        </div>
+                    </div>
 
                     <div className="form-group row">
                         <label htmlFor="username" className="col-sm-2 col-form-label">

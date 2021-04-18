@@ -9,7 +9,7 @@ const ProfileAdmin = () => {
         profileService.findAllProfiles()
             .then((profiles) => {
                 setProfiles(profiles)
-            });
+            })
     }, [])
 
     const deleteProfile = (e) => {

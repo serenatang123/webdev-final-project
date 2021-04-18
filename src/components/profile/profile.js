@@ -3,12 +3,11 @@ import ProfileBio from "./profile-bio";
 import ProfileAbout from "./profile-about";
 import ProfileFavorite from "./profile-favorite";
 import ProfileReview from "./profile-review";
-import ProfilePosted from "./profile-posted";
 import profileService from "../../services/profile-service";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 
 
-const Profile = () => {
+const Profile = ({user, setUser}) => {
 
     const {uid} = useParams();
     const [editing, setEditing] = useState(false);
@@ -16,23 +15,20 @@ const Profile = () => {
     const [profile, setProfile] = useState();
 
     useEffect(() => {
-        if(uid !== "undefined" && typeof uid !== "undefined") {
-            profileService.findProfileForUser(uid)
-                .then((profile) => {
-                    setProfile(profile)
-                });
-        }
+        profileService.findProfileForUser(uid)
+            .then(profile =>
+                setProfile(profile))
     }, [uid])
 
     const saveProfile = (profile) => {
+        // const newProfile = {
+        //     ...profile,
+        //     firstName: profile.firstName,
+        //     lastName: profile.lastName,
+        //     phone: profile.phone
+        // }
+        updateProfile(profile)
         setEditing(false)
-        const newProfile = {
-            ...profile,
-            firstName: profile.firstName,
-            lastName: profile.lastName,
-            phone: profile.phone
-        }
-        updateProfile(newProfile)
     }
 
     const updateProfile = (profile) => {
@@ -44,15 +40,27 @@ const Profile = () => {
 
     return (
         <>
+            <h1>Profile</h1>
             {JSON.stringify(profile)}
             {JSON.stringify(uid)}
+            {!user &&
+            <>
+                <div className='alert alert-warning'>
+                    Not logged in
+                </div>
+                <Link className='btn btn-outline-primary' to='/login'>Back to login page</Link>
+            </>
+            }
             {
-                profile &&
+                user && profile &&
                     <>
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-md-4">
                                     <ProfileBio profile={profile} setProfile={setProfile} editing={editing} setEditing={setEditing} saveProfile={saveProfile}/>
+                                    {
+                                        user.role === "ADMIN" && <Link to="/profile">Admin Panel to manage users!</Link>
+                                    }
                                     <div className="list-group col-md-10">
                                         <button type="button"
                                                 className="list-group-item"
@@ -85,10 +93,6 @@ const Profile = () => {
                                             {
                                                 profileType === "Review" &&
                                                 <ProfileReview/>
-                                            }
-                                            {
-                                                profileType === "Posted" &&
-                                                <ProfilePosted/>
                                             }
                                         </div>
                                         <div className="col-md-4">
