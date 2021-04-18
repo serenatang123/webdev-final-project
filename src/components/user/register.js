@@ -20,6 +20,7 @@ const Register = () => {
         address: '',
         email: '',
         phone: '',
+        role: '',
     })
 
     const createUser = () => {
@@ -163,6 +164,21 @@ const Register = () => {
                                     setCredentials(
                                         {...credentials, phone: e.target.value})
                                 }}></input>
+                        </div>
+                    </div>
+
+                    <div className="form-group row">
+                        <label htmlFor="phone" className="col-sm-2 col-form-label">
+                            Role </label>
+                        <div className="col-sm-10">
+                            <select
+                                onChange={(e) => {
+                                    setCredentials(
+                                        {...credentials, role: e.target.value})
+                                }}
+                                value={credentials.role}>
+                                <option>ADMIN</option>
+                                <option>USER</option></select>
                         </div>
                     </div>
 

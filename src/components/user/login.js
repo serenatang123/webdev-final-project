@@ -34,7 +34,8 @@ const Login = () =>{
                         <div className="col-sm-10">
                             <input
                                 value={credentials.username}
-                                onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
+                                onChange={(e) =>
+                                {setCredentials({...credentials, username: e.target.value})}}
                                 className="form-control"
                                    placeholder="username"></input>
                         </div>
@@ -46,7 +47,8 @@ const Login = () =>{
                         <div className="col-sm-10">
                             <input
                                 value={credentials.password}
-                                onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
+                                onChange={(e) =>
+                                {setCredentials({...credentials, password: e.target.value})}}
                                 type="password"
                                    className="form-control"
                                    placeholder="password"></input>
@@ -56,12 +58,9 @@ const Login = () =>{
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label"></label>
                         <div className="col-sm-10">
-                            <a href="../profile/profile.template.client.html">
-                                <button onClick={login} type="button" className="btn btn-primary btn-block">Login</button>
-                            </a>
+                            <button onClick={login} type="button" className="btn btn-primary btn-block">Login</button>
                             <div className="row">
                                 <div className="col-4">
-
                                 </div>
                                 <div className="col-4 text-center">
                                     <Link to="/">Cancel</Link>
