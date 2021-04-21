@@ -12,10 +12,10 @@ const HomeScreen = () => {
         <div>
             <div className="container-fluid">
                 <div className="row nav-ys">
-                    <h2 className="col-10">SuperKitchen</h2>
+                    <h2 className="col-9">SuperKitchen</h2>
                     <Link to={"/search"}><i className="fa fa-2x fa-search col-1"/></Link>
                     <Link to={"/login"}><i className="fa fa-2x fa-user col-1"/></Link>
-                    <Link to={"/profile"}>Profile-Admin</Link>
+                    <Link to={"/profile"}><i className="fa fa-2x fa-file col-1"/></Link>
                 </div>
 
                 <div className="row img-ys">

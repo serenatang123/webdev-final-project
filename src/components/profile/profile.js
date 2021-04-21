@@ -3,56 +3,40 @@ import ProfileBio from "./profile-bio";
 import ProfileAbout from "./profile-about";
 import ProfileFavorite from "./profile-favorite";
 import ProfileReview from "./profile-review";
-import ProfilePosted from "./profile-posted";
 import profileService from "../../services/profile-service";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 
 
-const Profile = () => {
+const Profile = ({user, setUser}) => {
 
-    const {uid} = useParams();
-    const [editing, setEditing] = useState(false);
-    const [profileType, setProfileType] = useState();
-    const [profile, setProfile] = useState();
+    // const {uid} = useParams();
+    const [profileType, setProfileType] = useState("");
 
-    useEffect(() => {
-        if(uid !== "undefined" && typeof uid !== "undefined") {
-            profileService.findProfileForUser(uid)
-                .then((profile) => {
-                    setProfile(profile)
-                });
-        }
-    }, [uid])
-
-    const saveProfile = (profile) => {
-        setEditing(false)
-        const newProfile = {
-            ...profile,
-            firstName: profile.firstName,
-            lastName: profile.lastName,
-            phone: profile.phone
-        }
-        updateProfile(newProfile)
-    }
-
-    const updateProfile = (profile) => {
-        profileService.updateProfileForUser(profile._id, profile)
-            .then((profile) => {
-                setProfile((profile))
-            })
+    const saveProfile = (user) => {
+        profileService.updateProfile(user)
     }
 
     return (
         <>
-            {JSON.stringify(profile)}
-            {JSON.stringify(uid)}
+            <h1>Profile</h1>
+            {!user &&
+            <>
+                <div className='alert alert-warning'>
+                    Not logged in
+                </div>
+                <Link className='btn btn-outline-primary' to='/login'>Back to login page</Link>
+            </>
+            }
             {
-                profile &&
+                user &&
                     <>
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-md-4">
-                                    <ProfileBio profile={profile} setProfile={setProfile} editing={editing} setEditing={setEditing} saveProfile={saveProfile}/>
+                                    <ProfileBio user={user} setUser={setUser} saveProfile={saveProfile}/>
+                                    {
+                                        user.role === "ADMIN" && <Link to="/profiles">Admin Panel to manage users!</Link>
+                                    }
                                     <div className="list-group col-md-10">
                                         <button type="button"
                                                 className="list-group-item"
@@ -75,20 +59,16 @@ const Profile = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-8">
-                                    <h2>{profile.firstName} {profile.lastName}'s Profile</h2>
+                                    <h2>{user.firstName} {user.lastName}'s Profile</h2>
                                     <div className="row">
                                         <div className="col-md-8">
                                             {
                                                 profileType === "About" &&
-                                                <ProfileAbout profile={profile} setProfile={setProfile} editing={editing} setEditing={setEditing} saveProfile={saveProfile}/>
+                                                <ProfileAbout user={user} setUser={setUser} saveProfile={saveProfile}/>
                                             }
                                             {
                                                 profileType === "Review" &&
                                                 <ProfileReview/>
-                                            }
-                                            {
-                                                profileType === "Posted" &&
-                                                <ProfilePosted/>
                                             }
                                         </div>
                                         <div className="col-md-4">

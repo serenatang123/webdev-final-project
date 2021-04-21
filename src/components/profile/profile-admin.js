@@ -9,16 +9,17 @@ const ProfileAdmin = () => {
         profileService.findAllProfiles()
             .then((profiles) => {
                 setProfiles(profiles)
-            });
+            })
     }, [])
 
+    // splice
     const deleteProfile = (e) => {
-        setProfiles(profiles.filter(item => item._id === e.target.id));
+        setProfiles(profiles.filter(item => item._id !== e.target.id));
     };
 
     const handleDelete = (e) => {
         console.log(e.target.id);
-        profileService.deleteProfileForUser(e.target.id)
+        profileService.deleteProfile(e.target.id)
             .then(() =>
             deleteProfile(e));
     }

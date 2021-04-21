@@ -1,32 +1,34 @@
-const PROFILE_URL = "http://localhost:3000/api/profile";
-
-export const createProfile = (id, profile) =>
-    fetch(`${PROFILE_URL}/${id}`, {
-        method: "POST",
-        body: JSON.stringify(profile),
-        headers: {
-            'content-type': 'application/json'
-        }
-    })
-        .then(response => response.json())
+const USER_URL = "http://localhost:3000/api";
 
 export const findAllProfiles = () =>
-    fetch(`${PROFILE_URL}`)
-        .then(response => response.json());
-
-export const findProfileForUser = (id) =>
-    fetch(`${PROFILE_URL}/${id}`)
-        .then(response => response.json())
-
-export const deleteProfileForUser = (id) =>
-    fetch(`${PROFILE_URL}/${id}`, {
-        method: "DELETE"
+    fetch(`${USER_URL}/profiles`, {
+        credentials: 'include',
     })
         .then(response => response.json())
 
-export const updateProfileForUser = (id, profile) =>
-    fetch(`${PROFILE_URL}/${id}`, {
+export const findProfile = () =>
+    fetch(`${USER_URL}/profile`, {
+        credentials: 'include'
+    })
+        .then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                return undefined;
+            }
+        })
+
+export const deleteProfile = () =>
+    fetch(`${USER_URL}/profile`, {
+        method: "DELETE",
+        credentials: 'include',
+    })
+        .then(response => response.json())
+
+export const updateProfile = (profile) =>
+    fetch(`${USER_URL}/profile`, {
         method: "PUT",
+        credentials: 'include',
         body: JSON.stringify(profile),
         headers: {
             'content-type': 'application/json'
@@ -34,9 +36,8 @@ export const updateProfileForUser = (id, profile) =>
     })
         .then(response => response.json())
 
-
 const api = {
-    createProfile, findAllProfiles, findProfileForUser, deleteProfileForUser, updateProfileForUser
+    findAllProfiles, findProfile, deleteProfile, updateProfile
 }
 
 export default api;
