@@ -48,7 +48,10 @@ const SearchScreen = () => {
                                 return(
                                     <li className="list-group-item">
                                         <Link to={`/details/${recipe.idMeal}`}>
-                                            {recipe.strMeal}
+                                            <div>
+                                                {recipe.strMeal} <img className="float-right" src={recipe.strMealThumb} width={50}/>
+                                            </div>
+
                                         </Link>
                                     </li>
                                 )
