@@ -12,11 +12,11 @@ export const register = (credentials) => {
         .then(response => response.json())
 }
 
-const login = (credentials) => {
+const login = (username, password) => {
     return fetch(`${REGISTER_URL}/login`, {
         method: "POST",
         credentials: "include",
-        body: JSON.stringify(credentials),
+        body: JSON.stringify({username, password}),
         headers: {
             'content-type': 'application/json'
         }
@@ -24,8 +24,13 @@ const login = (credentials) => {
         .then(response => response.json())
 }
 
-const api = {
-    register, login,
+export const logout = () => {
+    return fetch(`${REGISTER_URL}/logout`, {
+        method: 'POST',
+        credentials: 'include'
+    });
 }
 
-export default api;
+export default {
+    register, login, logout
+}
