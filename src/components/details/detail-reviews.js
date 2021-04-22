@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import reviewService from "../../services/review-service";
-import './detail.css'
+import './detail.css';
 
 const ReviewList = ({recipeId}) => {
     const [review, setReview] = useState({})

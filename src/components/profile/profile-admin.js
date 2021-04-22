@@ -12,16 +12,12 @@ const ProfileAdmin = () => {
             })
     }, [])
 
-    // splice
-    const deleteProfile = (e) => {
-        setProfiles(profiles.filter(item => item._id !== e.target.id));
-    };
 
     const handleDelete = (e) => {
-        console.log(e.target.id);
+        console.log(e.target.id)
         profileService.deleteProfile(e.target.id)
-            .then(() =>
-            deleteProfile(e));
+            .then(res => console.log(res))
+        setProfiles(profiles.filter(item => item._id !== e.target.id))
     }
 
     return (
@@ -42,7 +38,7 @@ const ProfileAdmin = () => {
                     profiles && profiles.map(_profile =>
                         <tr key={_profile._id}>
                             <td>
-                                <Link to={`/profile/${_profile._id}`}>
+                                <Link to={`/profiles/${_profile._id}`}>
                                     {_profile._id}
                                 </Link>
                             </td>

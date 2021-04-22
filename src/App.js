@@ -76,11 +76,9 @@ function App() {
                             <ProfileAdmin/>
                         </Route>
 
-                        {/*TODO: admin to each user profile and delete*/}
-                        <Route path={["/profile", "/profile/:uid"]} exact = {true}>
+                        <Route path={["/profile", "/profiles/:uid"]} exact = {true}>
                             <Profile user={user} setUser={setUser}/>
                         </Route>
-
                     </Switch>
                 </BrowserRouter>
 

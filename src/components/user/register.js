@@ -20,7 +20,7 @@ const Register = ({user}) => {
         address: '',
         email: '',
         phone: '',
-        role: '',
+        role: 'USER',
     })
 
     const onClickRegister = () => {

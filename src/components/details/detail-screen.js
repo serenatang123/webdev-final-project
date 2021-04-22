@@ -1,21 +1,29 @@
 import React, {useEffect, useState} from 'react'
-import {useHistory, useParams} from 'react-router-dom'
+import {Link, useHistory, useParams} from 'react-router-dom'
 import './detail.css'
 import 'font-awesome/css/font-awesome.min.css'
 import recipeService from "../../services/recipe-service"
 import ReviewList from "./detail-reviews"
 import IngredientDetail from "./ingredient-detail"
 import InstructionDetail from "./instruction-detail"
+import favoriteService from "../../services/favorite-service";
 
-
-const DetailsScreen = () => {
+const DetailsScreen = ({user}) => {
     const {recipeId} = useParams()
     const history = useHistory()
     const [recipe, setRecipe] = useState ({})
+    const [favorite, setFavorite] = useState(false);
+
+    const recipeName = recipe.meals && recipe.meals[0] && recipe.meals[0].strMeal;
+    const recipeImg = recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb;
 
     useEffect(() => {
-        findRecipeByRecipeId()
-    }, [])
+        findRecipeByRecipeId();
+        if(user) {
+            favoriteService.isFavorite(recipeId, user._id)
+                .then(res => setFavorite(res))
+        }
+    }, [recipeId, user])
 
     const findRecipeByRecipeId = () => {
         recipeService.findRecipeByRecipeId(recipeId)
@@ -23,6 +31,17 @@ const DetailsScreen = () => {
                 setRecipe(data)
             })
     }
+
+    const onClickAddFavorite = () => {
+        favoriteService.addFavorite(recipeId, user._id, user.username, recipeName, recipeImg)
+            .then(() => setFavorite(true));
+    }
+
+    const onClickRemoveFavorite = () => {
+        favoriteService.removeFavorite(recipeId, user._id)
+            .then(() => setFavorite(false));
+    }
+
     return (
 
         <div className="container-fluid top-margin container-outline bottom-margin">
@@ -35,22 +54,38 @@ const DetailsScreen = () => {
                     </button>
                     <br/>
                     <h2 className="separation-padding">
-                        {recipe.meals && recipe.meals[0] && recipe.meals[0].strMeal}
+                        {recipeName}
                     </h2>
-
                     <div className="row">
-                        <div className="col-xs-4">
-                            <button className="btn btn-block">
-                                Like <span className="fa fa-heart"/>
-                            </button>
+                        {/*<div className="col-xs-4">*/}
+                            {/*<button className="btn btn-block">*/}
+                            {/*    Like <span className="fa fa-heart"/>*/}
+                            {/*</button>*/}
                             {/*<i onClick="like(m, false)" className="fa fa-heart float-right"/>*/}
                             {/*<i onClick="like(m, true)" className="fa fa-heart-o float-right"/>*/}
-                        </div>
-                        <div className="col-xs-4">
-                            <button className="btn btn-block">
-                                Add to Favorite <span className="fa fa-plus-square"/>
-                            </button>
-                        </div>
+                        {/*</div>*/}
+                        {
+                            user &&
+                            <div className="col-xs-4">
+                                <Link className='btn btn-outline-info mr-1' to='/profile'>
+                                    See Favorites <span className="fa fa-folder"/>
+                                </Link>
+                                <>
+                                    {
+                                        !favorite &&
+                                        <button className='btn btn-outline-success' onClick={onClickAddFavorite}>
+                                            Add to Favorite <span className="fa fa-plus-square"/>
+                                        </button>
+                                    }
+                                    {
+                                        favorite &&
+                                        <button className='btn btn-outline-danger' onClick={onClickRemoveFavorite}>
+                                            Remove Favorite <span className="fa fa-trash"/>
+                                        </button>
+                                    }
+                                </>
+                            </div>
+                        }
                         <div className="col-xs-4">
 
                         </div>
@@ -58,7 +93,9 @@ const DetailsScreen = () => {
                     <br/>
 
                     <div className="text-center description-image">
-                        <img src={recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb}
+                        {/*<img src={recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb}*/}
+                        {/*     width={500}/>*/}
+                        <img src={recipeImg}
                              width={500}/>
                     </div>
                     <br/>
