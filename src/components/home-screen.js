@@ -12,7 +12,7 @@ const HomeScreen = () => {
         <div>
             <div className="container-fluid">
                 <div className="row nav-ys">
-                    <h2 className="col-9">SuperKitchen</h2>
+                    <h2 className="col-9">Smart Kitchen</h2>
                     <Link to={"/search"}><i className="fa fa-2x fa-search col-1"/></Link>
                     <Link to={"/login"}><i className="fa fa-2x fa-user col-1"/></Link>
                     <Link to={"/profile"}><i className="fa fa-2x fa-file col-1"/></Link>
@@ -20,8 +20,8 @@ const HomeScreen = () => {
 
                 <div className="row img-ys">
                     <div className="col-6">
-                        <h1 className="home-text">The Best Menu</h1>
-                        <span className="home-text">Perfect for any reason</span>
+                        <h1 className="home-text">SEASONAL MENU</h1>
+                        <span className="home-text">Inspired by the best ingredients</span>
                     </div>
                     <div className="col-6">
                         <img src="https://img1.wsimg.com/isteam/ip/56db4a65-8ac0-4b8a-84b3-b627379e2ca5/uliana-kopanytsia-2FA0VJzwc0g-unsplash-0001.jpg/:/"
