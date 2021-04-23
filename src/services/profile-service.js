@@ -4,7 +4,7 @@ export const findAllProfiles = () =>
     fetch(`${USER_URL}/profiles`, {
         credentials: 'include',
     })
-        .then(response => response.json())
+        .then(response => response.json());
 
 export const findProfile = () =>
     fetch(`${USER_URL}/profile`, {
@@ -16,14 +16,20 @@ export const findProfile = () =>
             } else {
                 return undefined;
             }
-        })
+        });
 
-export const deleteProfile = () =>
-    fetch(`${USER_URL}/profile`, {
+export const findProfileById = (userId) =>
+    fetch(`${USER_URL}/profiles/${userId}`, {
+        credentials: 'include',
+    })
+        .then(response => response.json());
+
+export const deleteProfile = (userId) =>
+    fetch(`${USER_URL}/profiles/${userId}`, {
         method: "DELETE",
         credentials: 'include',
     })
-        .then(response => response.json())
+        .then(response => response.json());
 
 export const updateProfile = (profile) =>
     fetch(`${USER_URL}/profile`, {
@@ -34,10 +40,10 @@ export const updateProfile = (profile) =>
             'content-type': 'application/json'
         }
     })
-        .then(response => response.json())
+        .then(response => response.json());
 
 const api = {
-    findAllProfiles, findProfile, deleteProfile, updateProfile
+    findAllProfiles, findProfile, findProfileById, deleteProfile, updateProfile
 }
 
 export default api;
