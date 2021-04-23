@@ -16,6 +16,10 @@
     padding-bottom: 150px;
 }
 
+.separation-padding {
+    padding-top: 40px;
+}
+
 .description-image {
     display: block;
     margin-left: auto;
@@ -23,6 +27,90 @@
     margin-top: 50px;
 }
 
-.separation-padding {
-    padding-top: 40px;
+
+.detail-video {
+    /*display: block;*/
+    margin-left: auto;
+    display: flex;
+    justify-content: center;;
+    margin-right: auto;
+    margin-bottom: 0px;
+    width: 100%;
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: center;
+    height: 0;
+}
+
+.reviews-user {
+    font-weight: bold;
+    font-size: 1rem;
+    overflow: hidden;
+    /*border-top-color: white;*/
+    /*border-left-color: white;*/
+    /*border-right-color: white;*/
+    /*border-style: solid;*/
+}
+
+
+
+
+
+
+.reviews-text {
+    font-weight: normal;
+    font-style: oblique;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.xl-recipe {
+    margin-top: 40px;
+    background-color: white;
+    border-bottom-color: black;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color:white;
+}
+
+.make-wider {
+    margin-left: -100px;
+    margin-right: -100px;
+}
+
+.recipe-profile-pad {
+    padding-left: 120px;
+}
+
+.banner-list-padding {
+    padding-left: 60px;
+    padding-top: 20px;
+}
+
+.icon-spacing {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.description-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.list-spacing {
+    padding: 30px;
+}
+
+
+
+.flex-row {
+    display: flex;
+    justify-content: center;
 }
