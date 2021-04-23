@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
-import recipeService from "../services/recipe-service"
+import recipeService from "../../services/recipe-service"
+import './search.css'
 
 const SearchScreen = () => {
     const history = useHistory()
@@ -21,23 +22,22 @@ const SearchScreen = () => {
             })
     }
     return (
-        <div className="container-fluid">
+        <div className="container-fluid search-top-margin search-bottom-margin">
             <div className="row">
                 <div className="col-sm-2"/>
                 <div className="col-sm-8">
                     <div>
-                        <h2> Search Screen </h2>
+                        <h2> Search Recipe </h2>
                         <input value={searchRecipe}
                                onChange={(event) => {
                                    setSearchRecipe(event.target.value)
                                }}
                                className = "form-control"/>
-
                         <button
                             onClick={() => {
                                 findRecipeByName(searchRecipe)
                             }}
-                            className = "btn btn-primary btn-block">
+                            className = "btn btn-primary btn-block ">
                             Search
                         </button>
                     </div>
@@ -49,7 +49,8 @@ const SearchScreen = () => {
                                     <li className="list-group-item">
                                         <Link to={`/details/${recipe.idMeal}`}>
                                             <div>
-                                                {recipe.strMeal} <img className="float-right" src={recipe.strMealThumb} width={50}/>
+                                                {recipe.strMeal}
+                                                <img className="float-right" src={recipe.strMealThumb} width={50}/>
                                             </div>
 
                                         </Link>
