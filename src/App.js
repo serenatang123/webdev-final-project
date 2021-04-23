@@ -1,5 +1,5 @@
 import './App.css';
-import SearchScreen from "./components/search-screen";
+import SearchScreen from "./components/search/search-screen";
 import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import Profile from "./components/profile/profile";
@@ -27,7 +27,7 @@ function App() {
             <div className="container-fluid">
                 <BrowserRouter>
                     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-                        <Link className='navbar-brand' to='/'> smartKitchen 这个 nav-bar 是暂时的</Link>
+                        <Link className='navbar-brand' to='/'> smartKitchen TEMP nav-bar </Link>
                         <div className='collapse navbar-collapse'>
                             <div className='navbar-nav'>
                                 <Link className='nav-item nav-link' to='/search'>Search</Link>
