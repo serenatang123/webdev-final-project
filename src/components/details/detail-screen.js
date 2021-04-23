@@ -7,8 +7,11 @@ import ReviewList from "./detail-reviews"
 import IngredientDetail from "./ingredient-detail"
 import InstructionDetail from "./instruction-detail"
 import favoriteService from "../../services/favorite-service";
+import ReactPlayer from "react-player"
+import ProfileBio from "../profile/profile-bio";
 
-const DetailsScreen = ({user}) => {
+
+const DetailsScreen = ({user, setUser}) => {
     const {recipeId} = useParams()
     const history = useHistory()
     const [recipe, setRecipe] = useState ({})
@@ -44,12 +47,12 @@ const DetailsScreen = ({user}) => {
 
     return (
 
-        <div className="container-fluid top-margin container-outline bottom-margin">
+        <div className="container-fluid top-margin bottom-margin">
             <div className="row">
                 <div className="col-sm-2"/>
                 <div className="col-sm-8">
                     <br/>
-                    <button className = "btn btn-primary" onClick={() => {history.goBack()}}>
+                    <button className = "btn btn-outline-primary" onClick={() => {history.goBack()}}>
                         Back
                     </button>
                     <br/>
@@ -58,12 +61,6 @@ const DetailsScreen = ({user}) => {
                     </h2>
                     <div className="row">
                         {/*<div className="col-xs-4">*/}
-                            {/*<button className="btn btn-block">*/}
-                            {/*    Like <span className="fa fa-heart"/>*/}
-                            {/*</button>*/}
-                            {/*<i onClick="like(m, false)" className="fa fa-heart float-right"/>*/}
-                            {/*<i onClick="like(m, true)" className="fa fa-heart-o float-right"/>*/}
-                        {/*</div>*/}
                         {
                             user &&
                             <div className="col-xs-4">
@@ -87,14 +84,13 @@ const DetailsScreen = ({user}) => {
                             </div>
                         }
                         <div className="col-xs-4">
-
                         </div>
                     </div>
                     <br/>
-
                     <div className="text-center description-image">
                         {/*<img src={recipe.meals && recipe.meals[0] && recipe.meals[0].strMealThumb}*/}
                         {/*     width={500}/>*/}
+                        {/*className="rounded mx-auto d-block"*/}
                         <img src={recipeImg}
                              width={500}/>
                     </div>
@@ -123,8 +119,23 @@ const DetailsScreen = ({user}) => {
                     <div>
                         <IngredientDetail/>
                     </div>
+                    <div className="detail-video">
+                        <ReactPlayer
+                            url={recipe.meals && recipe.meals[0] && recipe.meals[0].strYoutube}
+                        />
+                    </div>
                     <div>
-                        <ReviewList recipeId={recipeId}/>
+                        <a
+                            href={
+                                recipe.meals && recipe.meals[0] && recipe.meals[0].strYoutube
+                            }
+                            target="_blank">
+                            YouTube Video Preview Link
+                        </a>
+                    </div>
+
+                    <div >
+                        <ReviewList recipeId={recipeId} user={user} setUser={setUser}/>
                     </div>
                 </div>
                 <div className="col-sm-2"/>
