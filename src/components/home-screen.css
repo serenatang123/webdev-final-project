@@ -1,0 +1,44 @@
+
+.homeScreen-smartKitchen {
+    font-family: Helvetica, fantasy;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #171717;
+    margin-bottom: 1rem;
+    margin-left: 8px;
+}
+
+.homeScreen-title {
+    font-family: "Malayalam MN", monospace;
+    font-weight: normal;
+    font-size: 2.5rem;
+    color: #171717;
+}
+
+.homeScreen-subTitle {
+    font-family: "Malayalam MN", cursive;
+    font-weight: lighter;
+    font-size: 1.3rem;
+    color: #171717;
+}
+
+
+
+
+@media (max-width: 1232px) {
+    .homeScreen-products {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media (max-width: 950px) {
+    .homeScreen-products {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media (max-width: 630px) {
+    .homeScreen-products {
+        grid-template-columns: 1fr;
+    }
+}
