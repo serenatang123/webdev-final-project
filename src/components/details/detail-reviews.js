@@ -47,7 +47,7 @@ const ReviewList = ({recipeId, user}) => {
                                     return(
                                         <div className="list-spacing"
                                              key={i}>
-                                            <div className="reviews-user fst-italic">
+                                            <div className="reviews-title">
                                                 {item.userId}
                                                 {/*findUserByID({item.user})*/}
                                             </div>

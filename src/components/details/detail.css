@@ -57,6 +57,7 @@
 }
 
 .recipe-title {
+    font-family: "Malayalam MN", monospace;
     font-weight: bold;
     font-style: inherit;
     font-size: 2.5rem;
@@ -64,16 +65,25 @@
 }
 
 .section-title {
+    font-family: "Malayalam MN", monospace;
+    /*font-weight: normal;*/
     font-weight: bold;
     font-style: inherit;
     font-size: 1.5rem;
     overflow: hidden;
 }
 
-
+.reviews-title {
+    font-family: "Malayalam MN", sans-serif;
+    font-weight: bold;
+    /*font-style: oblique;*/
+    font-size: 1rem;
+    overflow: hidden;
+}
 
 .reviews-text {
-    font-weight: normal;
+    font-family: "Malayalam MN", monospace;
+    font-weight: initial;
     font-style: oblique;
     font-size: 1rem;
     overflow: hidden;
