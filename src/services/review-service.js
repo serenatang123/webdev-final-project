@@ -12,11 +12,11 @@ export const findReviewsForRecipe = (recipeId) =>
 //     })
 //         .then(response => response.json())
 
-export const createReviewForRecipe = (recipeId, review, userId) => {
+export const createReviewForRecipe = (recipeId, textArea, username, recipeName, recipeImg) => {
     return fetch(`${REVIEW_URL}/${recipeId}`, {
         method: "POST",
         credentials: 'include',
-        body: JSON.stringify({review, userId}),
+        body: JSON.stringify({recipeId, textArea, username, recipeName, recipeImg}),
         headers: {
             'content-type': 'application/json'
         }
@@ -24,10 +24,14 @@ export const createReviewForRecipe = (recipeId, review, userId) => {
         .then(response => response.json())
 }
 
-export const deleteReview = (recipeId) =>
-    fetch(`${REVIEW_URL}/${recipeId}`, {
+export const deleteReview = (recipeId, reviewId) =>
+    fetch(`${REVIEW_URL}/${recipeId}/${reviewId}`, {
         method: "DELETE",
-        credentials: 'include'
+        credentials: 'include',
+        body: JSON.stringify({recipeId, reviewId}),
+        headers: {
+            'content-type': 'application/json'
+        }
     })
         .then(response => response.json())
 
@@ -42,15 +46,15 @@ export const updateReview = (recipeId, review) =>
     })
         .then(response => response.json())
 
-export const findReviewsByUserId = (userId) =>
-    fetch(`${REVIEW_URL}/${userId}`, {
+export const findReviewsByUsername = (username) =>
+    fetch(`${REVIEW_URL}/username/${username}`, {
         credentials: 'include'
     })
         .then(response => response.json())
 
 
 const api = {
-    findReviewsForRecipe, createReviewForRecipe, deleteReview, updateReview
+    findReviewsForRecipe, createReviewForRecipe, deleteReview, updateReview, findReviewsByUsername
 }
 
 export default api;

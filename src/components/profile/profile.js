@@ -84,11 +84,12 @@ const Profile = ({user, setUser}) => {
                                             }
                                             {
                                                 profileType === "Review" &&
-                                                <ProfileReview/>
+                                                <ProfileReview user={user} editable={editable} currentProfile={currentProfile}/>
                                             }
                                         </div>
                                         <div className="col-md-4">
-                                            <ProfileFavorite user={user} editable={editable} currentProfile={currentProfile}/>
+
+                                            <ProfileFavorite user={user} editable={editable} />
                                         </div>
                                     </div>
                                 </div>

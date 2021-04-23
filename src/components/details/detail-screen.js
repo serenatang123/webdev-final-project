@@ -135,7 +135,7 @@ const DetailsScreen = ({user, setUser}) => {
                     </div>
 
                     <div className="separation-padding">
-                        <ReviewList recipeId={recipeId} user={user} setUser={setUser}/>
+                        <ReviewList recipeId={recipeId} user={user} setUser={setUser} recipeName={recipeName} recipeImg={recipeImg}/>
                     </div>
                 </div>
                 <div className="col-sm-2"/>
