@@ -42,6 +42,12 @@ export const updateReview = (recipeId, review) =>
     })
         .then(response => response.json())
 
+export const findReviewsByUserId = (userId) =>
+    fetch(`${REVIEW_URL}/${userId}`, {
+        credentials: 'include'
+    })
+        .then(response => response.json())
+
 
 const api = {
     findReviewsForRecipe, createReviewForRecipe, deleteReview, updateReview
