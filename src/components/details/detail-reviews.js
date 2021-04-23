@@ -48,7 +48,7 @@ const ReviewList = ({recipeId, user}) => {
                                         <div className="list-spacing"
                                              key={i}>
                                             <div className="reviews-title">
-                                                {item.userId}
+                                                {item.username}
                                                 {/*findUserByID({item.user})*/}
                                             </div>
                                             <div className="reviews-text">

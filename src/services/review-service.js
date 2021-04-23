@@ -12,11 +12,11 @@ export const findReviewsForRecipe = (recipeId) =>
 //     })
 //         .then(response => response.json())
 
-export const createReviewForRecipe = (recipeId, review, userId) => {
+export const createReviewForRecipe = (recipeId, review, username) => {
     return fetch(`${REVIEW_URL}/${recipeId}`, {
         method: "POST",
         credentials: 'include',
-        body: JSON.stringify({review, userId}),
+        body: JSON.stringify({review, username}),
         headers: {
             'content-type': 'application/json'
         }
