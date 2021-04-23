@@ -25,7 +25,7 @@ const ReviewList = ({recipeId, user}) => {
     }
     return (
         <div>
-            <h5>
+            <h5 className= "section-title">
                 Reviews
             </h5>
 

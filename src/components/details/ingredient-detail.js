@@ -31,7 +31,7 @@ const IngredientDetail = ({ingredient}) => {
 
         <div>
             <div>
-                <h5>Ingredients</h5>
+                <h5 className="section-title">Ingredients</h5>
             </div>
 
             <table className="table table-bordered">

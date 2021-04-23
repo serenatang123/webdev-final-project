@@ -56,7 +56,7 @@ const DetailsScreen = ({user, setUser}) => {
                         Back
                     </button>
                     <br/>
-                    <h2 className="separation-padding">
+                    <h2 className="separation-padding recipe-title">
                         {recipeName}
                     </h2>
                     <div className="row">
@@ -97,7 +97,7 @@ const DetailsScreen = ({user, setUser}) => {
                     <br/>
 
                     <div>
-                        <h5 className="separation-padding">
+                        <h5 className="separation-padding section-title">
                             Category
                         </h5>
                         <p>
@@ -106,7 +106,7 @@ const DetailsScreen = ({user, setUser}) => {
                     </div>
 
                     <div>
-                        <h5>Country/Region</h5>
+                        <h5 className="section-title">Country/Region</h5>
                         <p>
                             {recipe.meals && recipe.meals[0] && recipe.meals[0].strArea}
                         </p>
@@ -134,7 +134,7 @@ const DetailsScreen = ({user, setUser}) => {
                         </a>
                     </div>
 
-                    <div >
+                    <div className="separation-padding">
                         <ReviewList recipeId={recipeId} user={user} setUser={setUser}/>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ const InstructionDetail = ({instruction}) => {
     }
     return(
         <div>
-            <h5>Instructions</h5>
+            <h5 className="section-title">Instructions</h5>
             <ul>
                 {
                     recipe.meals && recipe.meals[0] && recipe.meals[0].strInstructions.split("\n").map((item, i) => {
