@@ -13,7 +13,7 @@ const Login = ({user, setUser}) =>{
             .then((user) => {
                 console.log(user)
                 if(user === 0) {
-                    alert("login failed, try again")
+                    alert("Login failed, please try again")
                 } else {
                     setUser(user)
                     history.push(`/`)

@@ -1,10 +1,22 @@
 .img-fluid{
     width: 70%;
-    height: 90%;
+    height: 70%;
+}
+
+.second-img{
+    width: 500px;
+    height: 650px;
+    margin-left: 30%;
+    margin-bottom: 10%;
+}
+
+.second-paragraph{
+    margin-top: auto;
+    margin-bottom: 5%;
 }
 
 .home-text{
-    margin-top: 40%;
+    margin-top: 35%;
     margin-left: 40%;
 }
 
@@ -14,4 +26,13 @@
 
 .img-ys{
     margin-top: 30px;
+}
+
+.homeScreen-smartKitchen {
+    font-family: Helvetica, fantasy;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #171717;
+    margin-bottom: 1rem;
+    margin-left: 8px;
 }
