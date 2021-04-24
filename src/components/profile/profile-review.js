@@ -28,9 +28,7 @@ const ProfileReview = ({user, editable, currentProfile}) => {
     return (
         <>
             <h3>Review</h3>
-            user.username: {user.username}
-            <br/>
-            <ul className='list-group'>
+            <ul className='list-group review-block'>
                 {
                     reviews.map(review =>
                         <li className='list-group-item'>
@@ -46,10 +44,11 @@ const ProfileReview = ({user, editable, currentProfile}) => {
                                 }
                             <Link key={review._id}
                                   to={`/details/${review.recipeId}`} style={{marginRight:"10px"}}>
-                                <img src={review.recipeImg}
-                                     width={30}/>
+                                <img className="review-img" src={review.recipeImg}
+                                     width={40}/>
                                 {review.recipeName}
                             </Link>
+                            <br/>
                             {review.textArea}
                         </li>)
                 }

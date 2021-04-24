@@ -18,13 +18,13 @@ const ProfileFavorite = ({user, editable}) => {
     }, [])
 
     return (
-        <>
+        <div className="favorite-block">
             <h3>Favorite</h3>
             <ul className='list-group'>
                 {favorites.map(favorite =>
                     <>
                         <Link key={favorite._id}
-                              className='list-group-item'
+                              className="favorite-list-item"
                               to={`/details/${favorite.recipeId}`}>
                             <img src={favorite.recipeImg}
                                  width={120}/>
@@ -34,7 +34,7 @@ const ProfileFavorite = ({user, editable}) => {
                     </>
                 )}
             </ul>
-        </>
+        </div>
     )
 }
 

@@ -5,6 +5,7 @@ import ProfileFavorite from "./profile-favorite";
 import ProfileReview from "./profile-review";
 import profileService from "../../services/profile-service";
 import {useParams, Link} from "react-router-dom";
+import "./profile.css";
 
 
 const Profile = ({user, setUser}) => {
@@ -49,7 +50,7 @@ const Profile = ({user, setUser}) => {
                     <>
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-4">
+                                <div className="profile-bio col-md-4">
                                     <ProfileBio user={user} setUser={setUser} saveProfile={saveProfile} editable={editable} currentProfile={currentProfile}/>
                                     <div className="list-group col-md-10">
                                         <button type="button"

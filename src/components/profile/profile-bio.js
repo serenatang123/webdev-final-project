@@ -6,12 +6,12 @@ const ProfileBio = ({user, setUser, saveProfile, editable, currentProfile}) => {
 
     return (
         <>
-            <h3>Bio</h3>
+            {/*<h3>Bio</h3>*/}
             {
                 editable &&
                     <>
-                        <img src={user.avatar} width="200"/>
-                        <p>{user.firstName} {user.lastName}</p>
+                        <img className="avatar" src={user.avatar} width="300"/>
+                        <p className="bio-name" >{user.firstName} {user.lastName}</p>
                         {
                             editing &&
                             <div className="bio-block">
