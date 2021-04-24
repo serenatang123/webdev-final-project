@@ -1,4 +1,5 @@
 import './App.css';
+import './style.css';
 import SearchScreen from "./components/search/search-screen";
 import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
@@ -7,7 +8,7 @@ import ProfileAdmin from "./components/profile/profile-admin";
 import DetailsScreen from "./components/details/detail-screen";
 import Login from "./components/user/login";
 import Register from "./components/user/register";
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import userService from "./services/user-service";
 import profileService from "./services/profile-service";
 
@@ -26,27 +27,26 @@ function App() {
     return (
             <div className="container-fluid">
                 <BrowserRouter>
-                    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-                        <Link className='navbar-brand' to='/'> smartKitchen TEMP nav-bar </Link>
+                    <nav className='navbar navbar-expand-lg navbar-light'>
+                        <Link className='navbar-brand homeScreen-smartKitchen' to='/'> SmartKitchen </Link>
                         <div className='collapse navbar-collapse'>
-                            <div className='navbar-nav'>
-                                <Link className='nav-item nav-link' to='/search'>Search</Link>
-                            </div>
                         </div>
                         {
                             user &&
                             <>
+                                <Link className='btn btn-outline-none' to='/search'><i className="fa fa-2x fa-search"/></Link>
                                 <div>
-                                    <Link to='/profile'>username here: {user.username}</Link>
+                                    <Link to='/profile'>Welcome: {user.username}</Link>
                                 </div>
-                                <button className='btn btn-outline-secondary' onClick={onClickLogout}>Logout</button>
+                                <button className='btn btn-outline-none' onClick={onClickLogout}>Logout</button>
                             </>
                         }
                         {
                             !user &&
                             <>
-                                <Link className='btn btn-outline-success' to='/register'>Register</Link>
-                                <Link className='btn btn-outline-primary' to='/login'>Login</Link>
+                                <Link className='btn btn-outline-none' to='/search'><i className="fa fa-2x fa-search"/></Link>
+                                <Link className='btn btn-outline-none' to='/profile'><i className="fa fa-2x fa-user"/></Link>
+                                <Link className='btn btn-outline-none' to='/login'>Login</Link>
                             </>
                         }
                     </nav>
