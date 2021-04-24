@@ -1,4 +1,5 @@
-const REVIEW_URL = "http://localhost:3000/api/reviews";
+// const REVIEW_URL = "http://localhost:3000/api/reviews";
+const REVIEW_URL = "http://smart-kitchen-node-server.herokuapp.com/api/reviews";
 
 export const findReviewsForRecipe = (recipeId) =>
     fetch(`${REVIEW_URL}/${recipeId}`, {

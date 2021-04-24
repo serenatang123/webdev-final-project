@@ -22,16 +22,14 @@ const ProfileFavorite = ({user, editable}) => {
             <h3>Favorite</h3>
             <ul className='list-group'>
                 {favorites.map(favorite =>
-                    <>
-                        <Link key={favorite._id}
-                              className="favorite-list-item"
-                              to={`/details/${favorite.recipeId}`}>
+                    <li className="favorite-list-item" key={favorite._id}>
+                        <Link to={`/details/${favorite.recipeId}`}>
                             <img src={favorite.recipeImg}
                                  width={120}/>
                                  <br/>
                             {favorite.recipeName}
                         </Link>
-                    </>
+                    </li>
                 )}
             </ul>
         </div>

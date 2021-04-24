@@ -49,3 +49,7 @@
 .favorite-list-item > img {
     border-radius: 5px;
 }
+
+.admin-table {
+    margin: 20px;
+}
