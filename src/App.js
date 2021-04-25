@@ -1,5 +1,5 @@
 import './App.css';
-import './style.css';
+import '../src/components/home-screen.css';
 import SearchScreen from "./components/search/search-screen";
 import HomeScreen from "./components/home-screen";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";

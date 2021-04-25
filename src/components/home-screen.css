@@ -21,7 +21,39 @@
     color: #171717;
 }
 
+.img-fluid{
+    width: 70%;
+    height: 70%;
+}
 
+.second-img{
+    width: 70%;
+    height: 70%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.second-paragraph{
+    margin-top: auto;
+    margin-bottom: 5%;
+}
+
+.home-text-1{
+    margin-top: 35%;
+    text-align: center;
+}
+
+.home-text-2{
+    text-align: center;
+}
+
+.nav-ys{
+    margin-top: 20px;
+}
+
+.img-ys{
+    margin-top: 30px;
+}
 
 
 @media (max-width: 1232px) {
