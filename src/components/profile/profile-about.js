@@ -6,6 +6,7 @@ const ProfileAbout = ({user, setUser, saveProfile, editable, currentProfile}) =>
 
     return (
         <>
+            <h3>About Me</h3>
             {
                 editable &&
                 <>

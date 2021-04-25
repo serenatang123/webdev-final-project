@@ -6,12 +6,13 @@ import ProfileReview from "./profile-review";
 import profileService from "../../services/profile-service";
 import {useParams, Link} from "react-router-dom";
 import "./profile.css";
+import ProfileAdmin from "./profile-admin";
 
 
 const Profile = ({user, setUser}) => {
 
     const {uid} = useParams();
-    const [profileType, setProfileType] = useState("");
+    const [profileType, setProfileType] = useState("About");
     const [currentProfile, setCurrentProfile] = useState({});
 
     const saveProfile = (user) => {
@@ -25,17 +26,21 @@ const Profile = ({user, setUser}) => {
     const editable = (userId == null || adminId === userId);
 
     useEffect(() => {
-        profileService.findProfileById(uid)
-            .then((profile) => {
-                setCurrentProfile(profile)
-            })
-    }, [])
+        if(uid) {
+            profileService.findProfileById(uid)
+                .then((profile) => {
+                    setCurrentProfile(profile)
+                })
+        }
+    }, [uid])
 
     return (
         <>
             <h1>Profile </h1>
             {
-                isAdmin && <Link to="/profiles">Admin Panel to manage users!</Link>
+                isAdmin && <Link className="btn btn-primary" to="/profiles" style={{margin:"10px"}}>
+                    Admin Panel to manage users!
+                </Link>
             }
             {!user &&
             <>

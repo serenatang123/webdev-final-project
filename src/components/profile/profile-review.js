@@ -31,7 +31,7 @@ const ProfileReview = ({user, editable, currentProfile}) => {
             <ul className='list-group review-block'>
                 {
                     reviews.map(review =>
-                        <li className='list-group-item'>
+                        <li className='list-group-item' key={review._id}>
                             {editable &&
                                 <i  id={review._id} className="fa fa-trash"
                                    style={{color:"red", marginRight:"5px"}}
@@ -42,8 +42,7 @@ const ProfileReview = ({user, editable, currentProfile}) => {
                                        setReviews(reviews.filter(item => item._id !== review._id))}
                                    }/>
                                 }
-                            <Link key={review._id}
-                                  to={`/details/${review.recipeId}`} style={{marginRight:"10px"}}>
+                            <Link to={`/details/${review.recipeId}`} style={{marginRight:"10px"}}>
                                 <img className="review-img" src={review.recipeImg}
                                      width={40}/>
                                 {review.recipeName}

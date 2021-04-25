@@ -1,10 +1,15 @@
-const USER_URL = "http://localhost:3000/api";
+// const USER_URL = "http://localhost:3000/api";
+const USER_URL = "http://smart-kitchen-node-server.herokuapp.com/api";
+
+// export const findAllProfiles = () =>
+//     fetch(`${USER_URL}/profiles`, {
+//         credentials: 'include'
+//     })
+//         .then(response => response.json());
 
 export const findAllProfiles = () =>
-    fetch(`${USER_URL}/profiles`, {
-        credentials: 'include',
-    })
-        .then(response => response.json());
+    fetch(`${USER_URL}/profiles`)
+        .then(res => res.json());
 
 export const findProfile = () =>
     fetch(`${USER_URL}/profile`, {
