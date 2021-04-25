@@ -80,6 +80,14 @@ function App() {
                             <Profile user={user} setUser={setUser}/>
                         </Route>
                     </Switch>
+                    <div>
+
+                    </div>
+                    <div className="text-center content-wrap page-container main-footer footer-separation-padding">
+                        <h2 className="footer-text">#SmartKitchen</h2>
+                        <p className="footer-text">Tel: 123-456-7890 | Email: info@smartkitchen.com</p>
+                        <p className="footer-text">COPYRIGHT@ 2021 SMARTKITCHEN - ALL RIGHTS RESERVED</p>
+                    </div>
                 </BrowserRouter>
 
             </div>

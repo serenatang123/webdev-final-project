@@ -1,3 +1,23 @@
+.main-footer{
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-separation-padding {
+  padding-top: 500px;
+}
+
+.footer-text {
+  font-family: "Malayalam MN", monospace;
+  color: lightslategrey;
+  font-weight: initial;
+  font-style: normal;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -12,6 +32,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+/*.page-container{*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  min-height: 100vh;*/
+/*}*/
+
+/*.content-wrap{*/
+/*  flex: 1;*/
+/*}*/
 
 .App-header {
   background-color: #282c34;

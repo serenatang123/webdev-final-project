@@ -30,11 +30,11 @@ const HomeScreen = () => {
                     </div>
                     <div className="col-6 second-paragraph">
                         <h1 className="homeScreen-title">One Perfect Pie</h1>
-                        <p>We release one batch of our signature fruit pie per month, using our family recipe.</p>
-                        <p>Subscribe to our email list for the earliest notification of when they will be back in stock.</p>
-                        <p>Our pies sell out within minutes, so set an alarm and get here fast!</p>
-                        <h2 className="homeScreen-title">#SmartKitchen</h2>
-                        <p className="homeScreen-subTitle">Tel: 123-456-7890 | Email: info@smartkitchen.com</p>
+                        <p className="homeScreen-subTitle">We release one batch of our signature fruit pie per month, using our family recipe.</p>
+                        <p className="homeScreen-subTitle">Subscribe to our email list for the earliest notification of when they will be back in stock.</p>
+                        {/*<p className="homeScreen-subTitle">Our pies sell out within minutes, so set an alarm and get here fast!</p>*/}
+                        {/*<h2 className="homeScreen-title">#SmartKitchen</h2>*/}
+                        {/*<p className="homeScreen-subTitle">Tel: 123-456-7890 | Email: info@smartkitchen.com</p>*/}
                     </div>
                 </div>
 
