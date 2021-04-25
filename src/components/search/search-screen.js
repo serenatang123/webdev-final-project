@@ -14,6 +14,7 @@ const SearchScreen = () => {
             findRecipeByName(recipeName)
         }
     }, [])
+
     const findRecipeByName = (recipeName) => {
         history.push(`/search/${recipeName}`)
         recipeService.findRecipeByName(recipeName)
@@ -32,12 +33,13 @@ const SearchScreen = () => {
                                onChange={(event) => {
                                    setSearchRecipe(event.target.value)
                                }}
+                               placeholder="Enter your search here."
                                className = "form-control"/>
                         <button
                             onClick={() => {
                                 findRecipeByName(searchRecipe)
                             }}
-                            className = "btn btn-primary btn-block ">
+                            className = "btn btn-primary btn-block">
                             Search
                         </button>
                     </div>
