@@ -22,13 +22,15 @@ const Register = ({user}) => {
         phone: '',
         role: 'USER',
     })
+    const [check, setCheck] = useState("");
 
     const onClickRegister = () => {
         registerService.register(credentials)
             .then((user) => {
                 console.log(user)
                 if (user === 0) {
-                    alert("username already taken")
+                    //alert("username already taken")
+                    setCheck("check")
                 } else {
                     history.push("/login")
                 }
@@ -57,6 +59,17 @@ const Register = ({user}) => {
                     !user &&
                     <>
                         <form>
+
+                            <div>
+                                {
+                                    check === "check" &&
+                                    <>
+                                        <div className='alert alert-warning'>
+                                            Username already taken, please input a new username.
+                                        </div>
+                                    </>
+                                }
+                            </div>
 
                             <div className="form-group row">
                                 <label htmlFor="username" className="col-sm-2 col-form-label">
