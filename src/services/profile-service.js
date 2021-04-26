@@ -1,4 +1,4 @@
-// const USER_URL = "http://localhost:3000/api";
+// const USER_URL = "http://localhost:3001/api";
 const USER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
 
 // export const findAllProfiles = () =>
@@ -29,6 +29,12 @@ export const findProfileById = (userId) =>
     })
         .then(response => response.json());
 
+export const findProfileByUsername = (username) =>
+    fetch(`${USER_URL}/profiles/username/${username}`, {
+        credentials: 'include',
+    })
+        .then(response => response.json());
+
 export const deleteProfile = (userId) =>
     fetch(`${USER_URL}/profiles/${userId}`, {
         method: "DELETE",
@@ -48,7 +54,7 @@ export const updateProfile = (profile) =>
         .then(response => response.json());
 
 const api = {
-    findAllProfiles, findProfile, findProfileById, deleteProfile, updateProfile
+    findAllProfiles, findProfile, findProfileById, findProfileByUsername, deleteProfile, updateProfile
 }
 
 export default api;

@@ -16,6 +16,8 @@ const ProfileBio = ({user, setUser, saveProfile, editable, currentProfile}) => {
                             editing &&
                             <div className="bio-block">
                                 <i onClick={() => {saveProfile(user); setEditing(false)}} className="fa fa-check" style={{color:"green"}}></i>
+                                <input defaultValue={user.password} onChange={(e) => setUser(user =>
+                                    ({...user, password : e.target.value}))} className="form-control"/>
                                 <input defaultValue={user.phone} onChange={(e) => setUser(user =>
                                     ({...user, phone : e.target.value}))} className="form-control"/>
                                 <input defaultValue={user.email} onChange = {(e) => setUser(user =>
@@ -30,6 +32,7 @@ const ProfileBio = ({user, setUser, saveProfile, editable, currentProfile}) => {
                                 <div className="bio-block">
                                     <i onClick={() => setEditing(true)} className="fa fa-edit" style={{color:"blue"}}></i>
                                     <ul className="list-group">
+                                        <li className="list-group-item">{user.password}</li>
                                         <li className="list-group-item">{user.phone}</li>
                                         <li className="list-group-item">{user.email}</li>
                                         <li className="list-group-item">{user.address}</li>

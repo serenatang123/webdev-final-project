@@ -1,4 +1,4 @@
-// const REGISTER_URL = "http://localhost:3000/api";
+// const REGISTER_URL = "http://localhost:3001/api";
 const REGISTER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
 
 export const register = (credentials) => {

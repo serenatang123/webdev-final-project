@@ -1,4 +1,4 @@
-// const USER_URL = "http://localhost:3000/api";
+// const USER_URL = "http://localhost:3001/api";
 const USER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
 
 export const isFavorite = (recipeId, userId) =>

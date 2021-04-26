@@ -1,4 +1,4 @@
-// const REVIEW_URL = "http://localhost:3000/api/reviews";
+// const REVIEW_URL = "http://localhost:3001/api/reviews";
 const REVIEW_URL = "https://smart-kitchen-node-server.herokuapp.com/api/reviews";
 
 export const findReviewsForRecipe = (recipeId) =>
@@ -13,11 +13,11 @@ export const findReviewsForRecipe = (recipeId) =>
 //     })
 //         .then(response => response.json())
 
-export const createReviewForRecipe = (recipeId, textArea, username, recipeName, recipeImg) => {
+export const createReviewForRecipe = (recipeId, textArea, username, recipeName, recipeImg, userId) => {
     return fetch(`${REVIEW_URL}/${recipeId}`, {
         method: "POST",
         credentials: 'include',
-        body: JSON.stringify({recipeId, textArea, username, recipeName, recipeImg}),
+        body: JSON.stringify({recipeId, textArea, username, recipeName, recipeImg, userId}),
         headers: {
             'content-type': 'application/json'
         }

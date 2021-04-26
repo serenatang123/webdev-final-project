@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import reviewService from "../../services/review-service";
 import './detail.css';
 
@@ -18,7 +19,7 @@ const ReviewList = ({recipeId, user, recipeName, recipeImg}) => {
     }
 
     const submitHandler = () => {
-        reviewService.createReviewForRecipe(recipeId, myReview.textArea, user.username, recipeName, recipeImg)
+        reviewService.createReviewForRecipe(recipeId, myReview.textArea, user.username, recipeName, recipeImg, user._id)
             .then(res => console.log(res))
         // myReview.value = ""
         // reviewText.value.setState({ text: '' });
@@ -30,6 +31,26 @@ const ReviewList = ({recipeId, user, recipeName, recipeImg}) => {
                 Reviews
             </h5>
 
+            <ul>
+                {
+                    review && review[0] && review.map((item, i) => {
+                        return(
+                            <li className="list-spacing"
+                                key={i}>
+                                <Link className="reviews-title" to={(user && user._id && item.userId && user._id === item.userId) ?
+                                    "/profile" : `/profiles/${item.userId}`}>
+                                    {item.username}
+                                    {/*findUserByID({item.user})*/}
+                                </Link>
+                                <div className="reviews-text">
+                                    {item.textArea}
+                                </div>
+
+                            </li>
+                        )
+                    })
+                }
+            </ul>
             {
                 !user &&
                 <>
@@ -41,27 +62,7 @@ const ReviewList = ({recipeId, user, recipeName, recipeImg}) => {
             {
                 user &&
                 <>
-                    <tr>
-                        <td>
-                            {
-                                review && review[0] && review.map((item, i) => {
-                                    return(
-                                        <div className="list-spacing"
-                                             key={i}>
-                                            <div className="reviews-title">
-                                                {item.username}
-                                                {/*findUserByID({item.user})*/}
-                                            </div>
-                                            <div className="reviews-text">
-                                                {item.textArea}
-                                            </div>
 
-                                        </div>
-                                    )
-                                })
-                            }
-                        </td>
-                    </tr>
 
                     <h5 className="separation-padding">
                     Submit Your Review
