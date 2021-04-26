@@ -1,5 +1,5 @@
 // const REGISTER_URL = "http://localhost:3000/api";
-const REGISTER_URL = "http://smart-kitchen-node-server.herokuapp.com/api";
+const REGISTER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
 
 export const register = (credentials) => {
     return fetch(`${REGISTER_URL}/register`, {
