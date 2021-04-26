@@ -55,15 +55,13 @@ const ReviewList = ({recipeId, user, recipeName, recipeImg}) => {
                 !user &&
                 <>
                     <div className='alert alert-warning'>
-                        Please login to see and submit your review.
+                        Please login to submit your review.
                     </div>
                 </>
             }
             {
                 user &&
                 <>
-
-
                     <h5 className="separation-padding">
                     Submit Your Review
                     </h5>
