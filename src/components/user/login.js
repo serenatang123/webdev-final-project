@@ -3,17 +3,19 @@ import {Link, useHistory} from "react-router-dom";
 import userService from "../../services/user-service";
 
 const Login = ({user, setUser}) =>{
-    // const [credentials, setCredentials] = useState({username: '', password: ''})
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [credentials, setCredentials] = useState({username: '', password: ''})
+    //const [username, setUsername] = useState('');
+    //const [password, setPassword] = useState('');
     const history = useHistory()
+    const [check, setCheck] = useState("");
 
     const onClickLogin = () => {
-        userService.login(username, password)
+        userService.login(credentials)
             .then((user) => {
                 console.log(user)
                 if(user === 0) {
-                    alert("Login failed, please try again")
+                    //alert("Login failed, please try again")
+                    setCheck("check")
                 } else {
                     setUser(user)
                     history.push(`/`)
@@ -44,13 +46,24 @@ const Login = ({user, setUser}) =>{
                     <>
                         <form>
 
+                            <div>
+                                {
+                                    check === "check" &&
+                                    <>
+                                        <div className='alert alert-warning'>
+                                            Please check your username and password again.
+                                        </div>
+                                    </>
+                                }
+                            </div>
+
                             <div className="form-group row">
                                 <label htmlFor="username" className="col-sm-2 col-form-label">
                                     Username </label>
                                 <div className="col-sm-10">
                                     <input
-                                        value={username}
-                                        onChange={e => setUsername(e.target.value)}
+                                        value={credentials.username}
+                                        onChange={(e) => {setCredentials({...credentials, username: e.target.value})}}
                                         className="form-control"
                                         placeholder="username"></input>
                                 </div>
@@ -61,8 +74,8 @@ const Login = ({user, setUser}) =>{
                                     Password </label>
                                 <div className="col-sm-10">
                                     <input
-                                        value={password}
-                                        onChange={e => setPassword(e.target.value)}
+                                        value={credentials.password}
+                                        onChange={(e) => {setCredentials({...credentials, password: e.target.value})}}
                                         type="password"
                                         className="form-control"
                                         placeholder="password"></input>
@@ -85,6 +98,7 @@ const Login = ({user, setUser}) =>{
                                     </div>
                                 </div>
                             </div>
+
 
                         </form>
                     </>

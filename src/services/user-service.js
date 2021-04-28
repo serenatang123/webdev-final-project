@@ -1,5 +1,5 @@
-// const REGISTER_URL = "http://localhost:3001/api";
-const REGISTER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
+const REGISTER_URL = "http://localhost:3001/api";
+// const REGISTER_URL = "https://smart-kitchen-node-server.herokuapp.com/api";
 
 export const register = (credentials) => {
     return fetch(`${REGISTER_URL}/register`, {
@@ -13,11 +13,11 @@ export const register = (credentials) => {
         .then(response => response.json())
 }
 
-const login = (username, password) => {
+const login = (credentials) => {
     return fetch(`${REGISTER_URL}/login`, {
         method: "POST",
         credentials: "include",
-        body: JSON.stringify({username, password}),
+        body: JSON.stringify(credentials),
         headers: {
             'content-type': 'application/json'
         }
