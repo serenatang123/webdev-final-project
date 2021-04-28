@@ -42,7 +42,7 @@ const Profile = ({user, setUser}) => {
                     Admin Panel to manage users!
                 </Link>
             }
-            {!user &&
+            {!user && !uid &&
             <>
                 <div className='alert alert-warning'>
                     Not logged in
@@ -51,7 +51,7 @@ const Profile = ({user, setUser}) => {
             </>
             }
             {
-                user &&
+                (user || uid) &&
                     <>
                         <div className="container-fluid">
                             <div className="row">
